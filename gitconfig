@@ -1,5 +1,4 @@
 [init]
-  defaultBranch = main
   templatedir = ~/.git_template
 [push]
   default = current
@@ -13,13 +12,20 @@
   co = checkout
   pf = push --force-with-lease
   st = status
+  lb = -c color.ui='always' branch --sort='-committerdate' --format='%(color:green)%(committerdate:relative)%(color:reset) %(refname:short)'
 [core]
-  excludesfile = ~/.gitignore
+	pager = delta --highlight-removed --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+	excludesfile = /Users/ciaccibdt/.gitignore
   autocrlf = input
+	hooksPath = /Users/ciaccibdt/.git_template/hooks
+[delta]
+	features = line-numbers decorations
+[interactive]
+	diffFilter = delta --color-only
 [merge]
   ff = only
 [commit]
-  template = ~/.gitmessage
+	template = ~/.gitmessage
 [fetch]
   prune = true
 [rebase]
@@ -28,3 +34,40 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[gitflow "init"]
+	defaults = true
+[gitflow "feature.finish"]
+	keep = true
+	push = true
+[gitflow "feature.delete"]
+	remote = true
+[gitflow "hotfix.finish"]
+	keep = true
+	push = true
+[gitflow "hotfix.delete"]
+	remote = true
+[gitflow "release.finish"]
+	keep = true
+	push = true
+[gitflow "release.delete"]
+	remote = true
+[user]
+	name = Anthony Ciacci
+	email = aciacci@bdtrust.org
+[gitflow "bugfix.finish"]
+	keep = true
+	push = true
+[gitflow "bugfix.delete"]
+	remote = true
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[pull]
+	rebase = false
