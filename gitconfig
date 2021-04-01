@@ -15,9 +15,9 @@
   lb = -c color.ui='always' branch --sort='-committerdate' --format='%(color:green)%(committerdate:relative)%(color:reset) %(refname:short)'
 [core]
 	pager = delta --highlight-removed --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
-	excludesfile = /Users/ciaccibdt/.gitignore
+	excludesfile = /Users/***USER***/.gitignore
   autocrlf = input
-	hooksPath = /Users/ciaccibdt/.git_template/hooks
+	hooksPath = /Users/***USER***/.git_template/hooks
 [delta]
 	features = line-numbers decorations
 [interactive]
@@ -53,7 +53,7 @@
 	remote = true
 [user]
 	name = Anthony Ciacci
-	email = aciacci@bdtrust.org
+	email = ***USER EMAIL***
 [gitflow "bugfix.finish"]
 	keep = true
 	push = true
