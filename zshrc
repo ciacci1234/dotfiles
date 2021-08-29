@@ -40,6 +40,11 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# git completion
+if [ -f git_template/.git-completion.bash ]; then
+  . git_template/.git-completion.bash
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/***USER***/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/***USER***/google-cloud-sdk/path.zsh.inc'; fi
 
